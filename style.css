@@ -185,7 +185,7 @@ img.profile {
   background-color: #034344;
 }
 
-/* Botão Whoop (estilo do outro site) */
+/* Botão Whoop (cores do outro site) */
 .whoop-button {
   background-color: #E4A834;
   color: white;
@@ -195,8 +195,9 @@ img.profile {
   border-radius: 6px;
   cursor: pointer;
   text-decoration: none;
-  display: inline-block;
-  margin: 10px 10px 0 10px;
+  display: block;      
+  width: max-content;  
+  margin: 10px auto 0;   
 }
 
 .whoop-button:hover {
