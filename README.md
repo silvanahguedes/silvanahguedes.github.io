@@ -11,6 +11,6 @@ Este repositório contém o site desenvolvido em **HTML + CSS + JavaScript** par
 ---
 
 ## 📂 Estrutura do projeto
-index.html # Página principal e script JS (galeria de fotos)
-style.css # Estilos do site (CSS externo)
-media/ # Pasta com as imagens (fotos, depoimentos, etc.)
+- index.html # Página principal e script JS (galeria de fotos)
+- style.css # Estilos do site (CSS externo)
+- media/ # Pasta com as imagens (fotos, depoimentos, etc.)
