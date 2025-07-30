@@ -69,10 +69,27 @@
   </footer>
 
   <script>
-    // Configuração: número de imagens e pasta
+  // Configurações dos depoimentos - diretórios e etc.
     const TOTAL_DEPOIMENTOS = 13;
     const PASTA = "media";
-    const PREFIXO = "depoimento"; // depoimento1.jpg, depoimento2.jpg ...
+    const PREFIXO = "depoimento";
+  
+    // Texto alternativo para cada imagem, na ordem
+    const ALT_TEXTS = [
+      "Depoimento de @verabrixner agradecendo pelas mudanças e coragem na vida",
+      "Depoimento 2 — cliente relata clareza após sessões",
+      "Depoimento 3 — cliente fala sobre acolhimento e profundidade",
+      "Depoimento 4 — relato de propósito e autenticidade",
+      "Depoimento 5 — cliente menciona segurança e transformação",
+      "Depoimento 6 — depoimento sobre parar de se sabotar",
+      "Depoimento 7 — relato sobre conexão com a alma",
+      "Depoimento 8 — cliente cita coragem e clareza",
+      "Depoimento 9 — processo de autoconhecimento",
+      "Depoimento 10 — evolução no trabalho e na vida",
+      "Depoimento 11 — integração ciência e espiritualidade",
+      "Depoimento 12 — cliente diz sentir-se mais livre",
+      "Depoimento 13 — gratidão e continuidade do processo"
+    ];
   
     const track = document.getElementById("testimonialTrack");
     const dotsWrap = document.getElementById("testimonialDots");
@@ -83,7 +100,7 @@
     let larguraViewport = 0;
     let slides = [];
   
-    // Popula os slides dinamicamente
+    // Monta os slides com ALT
     for (let i = 1; i <= TOTAL_DEPOIMENTOS; i++) {
       const li = document.createElement("li");
       li.className = "slide";
@@ -93,8 +110,12 @@
   
       const img = document.createElement("img");
       img.loading = "lazy";
+      img.decoding = "async";
       img.src = `${PASTA}/${PREFIXO}${i}.jpg`;
-      img.alt = `Depoimento ${i}`;
+  
+      // ✅ aplica alt do array; se faltar, usa um padrão
+      const alt = ALT_TEXTS[i - 1] || `Depoimento ${i}`;
+      img.alt = alt;
   
       card.appendChild(img);
       li.appendChild(card);
@@ -103,9 +124,12 @@
   
     slides = Array.from(track.children);
   
-    // Cria dots (bolinhas de navegação)
+    // Cria os dots usando o ALT como rótulo
     slides.forEach((_, i) => {
       const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", `Ir para: ${ALT_TEXTS[i] || `Depoimento ${i+1}`}`);
       dot.addEventListener("click", () => irPara(i));
       dotsWrap.appendChild(dot);
     });
@@ -113,11 +137,9 @@
     function atualizarUI() {
       larguraViewport = track.parentElement.clientWidth;
       track.style.transform = `translateX(${-indexAtual * larguraViewport}px)`;
-  
       Array.from(dotsWrap.children).forEach((dot, i) => {
         dot.setAttribute("aria-selected", i === indexAtual ? "true" : "false");
       });
-  
       prevBtn.disabled = indexAtual === 0;
       nextBtn.disabled = indexAtual === slides.length - 1;
     }
@@ -126,14 +148,11 @@
       indexAtual = Math.max(0, Math.min(slides.length - 1, novoIndex));
       atualizarUI();
     }
-  
     function proximo() { irPara(indexAtual + 1); }
     function anterior() { irPara(indexAtual - 1); }
   
     nextBtn.addEventListener("click", proximo);
     prevBtn.addEventListener("click", anterior);
-  
-    // Inicializa
     window.addEventListener("resize", atualizarUI);
     atualizarUI();
   </script>
