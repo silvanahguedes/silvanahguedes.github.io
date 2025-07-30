@@ -123,9 +123,10 @@ img.profile {
 
 .carousel-track .slide img {
   display: block;
-  width: auto;            /* usa a largura original */
-  height: auto;           /* usa a altura original */
-  max-width: 100%;        /* limita ao espaço da tela */
+  width: auto;             /* mantém proporção original */
+  height: auto;            /* mantém proporção original */
+  max-width: 100%;         /* nunca ultrapassa a largura disponível */
+  max-height: 80vh;        /* nunca ultrapassa 80% da altura da tela */
   border-radius: 6px;
   background: #f3f7f3;
 }
