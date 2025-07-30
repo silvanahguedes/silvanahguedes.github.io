@@ -1,4 +1,4 @@
-/* Reset e estilo geral */
+/* estilo geral */
 body {
   background-color: #f9f9f9;
   font-family: 'Segoe UI', sans-serif;
@@ -8,7 +8,11 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
+body p {
+  text-align: justify;
+}
+
+/* estilo header */
 header {
   background-color: #8474A1;
   padding: 40px 20px;
@@ -35,11 +39,7 @@ section {
   margin: auto;
 }
 
-body p {
-  text-align: justify;
-}
-
-/* Foto de perfil */
+/* foto de perfil */
 img.profile {
   width: 180px;
   height: 180px;
@@ -48,7 +48,7 @@ img.profile {
   margin-top: 20px;
 }
 
-/* Container geral */
+/* container geral - sub-seção */
 .minha-historia {
   display: flex;
   flex-wrap: wrap;
@@ -57,19 +57,19 @@ img.profile {
   margin-top: 30px;
 }
 
-/* Texto */
+/* texto - sub-seção  */
 .minha-historia .texto-historia {
   flex: 1 1 55%;
 }
 
-/* Container das fotos com legenda */
+/* fotos com legenda - sub-seção */
 .fotos-historia {
   flex: 1 1 40%;
   position: relative;
-  min-height: 420px; /* espaço suficiente para as fotos sobrepostas */
+  min-height: 500px; /* aumentado para comportar o novo espaçamento entre as três fotos */
 }
 
-/* Cada figure (foto + legenda) */
+/* cada figure (foto + legenda) */
 .fotos-historia figure {
   position: absolute;
   width: 180px;
@@ -81,24 +81,26 @@ img.profile {
   transition: transform 0.3s ease;
 }
 
-/* Posição das fotos (ajuste fino conforme preferir) */
+/* posicionamento das fotos (mais espaço entre elas) */
 .fotos-historia figure:nth-child(1) {
   top: 0;
   left: 0;
   z-index: 1;
 }
+
 .fotos-historia figure:nth-child(2) {
-  top: 60px;
-  left: 100px;
+  top: 90px;      /* aumentado (antes 60px) */
+  left: 140px;    /* aumentado (antes 100px) */
   z-index: 2;
 }
+
 .fotos-historia figure:nth-child(3) {
-  top: 140px;
-  left: 40px;
+  top: 180px;     /* aumentado (antes 140px) */
+  left: 70px;     /* aumentado (antes 40px) */
   z-index: 1;
 }
 
-/* Foto */
+/* foto dentro do figure */
 .fotos-historia img {
   width: 100%;
   height: 150px;
@@ -107,20 +109,20 @@ img.profile {
   border: 2px solid #055B5C;
 }
 
-/* Legenda */
+/* legendas */
 .fotos-historia figcaption {
   font-size: 13px;
   margin-top: 6px;
   color: #444;
 }
 
-/* Efeito hover */
+/* efeito hover entre as figures */
 .fotos-historia figure:hover {
   transform: scale(1.05);
   z-index: 3;
 }
 
-/* Responsivo: fotos empilhadas no mobile */
+/* responsivo: fotos empilhadas no mobile (telas menores) */
 @media (max-width: 768px) {
   .minha-historia {
     flex-direction: column;
@@ -144,7 +146,7 @@ img.profile {
   }
 }
 
-/* Botões principais */
+/* Botões de contato */
 .cta-button {
   background-color: #6a9f68;
   color: white;
@@ -162,7 +164,7 @@ img.profile {
   background-color: #557b52;
 }
 
-/* Botão Whoop (exemplo extra) */
+/* Botão Whoop (estilo do outro site) */
 .whoop-button {
   background-color: #E4A834;
   color: white;
@@ -180,9 +182,7 @@ img.profile {
   background-color: #1F1F1F;
 }
 
-/* -------------------------------
-   Carrossel de depoimentos
--------------------------------- */
+/* Carrossel de depoimentos */
 .carousel {
   position: relative;
   max-width: 900px;
