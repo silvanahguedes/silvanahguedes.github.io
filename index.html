@@ -70,13 +70,13 @@
 
   <script>
   // Configurações dos depoimentos - diretórios e etc.
-    const TOTAL_DEPOIMENTOS = 13;
+    const TOTAL_DEPOIMENTOS = 9;
     const PASTA = "media";
     const PREFIXO = "depoimento";
   
     // Texto alternativo para cada imagem, na ordem
     const ALT_TEXTS = [
-      "Depoimento de @verabrixner agradecendo pelas mudanças e coragem na vida",
+      "Depoimento de @carloseduardoary_business: 'Seu trabalho é fantástico, Sil. estamos juntos já desde 2017 e sua ajuda tem sido muito importante para a minha evolução pessoal e profissional! Te desejo todo sucesso! Beijos, Carlucho' (Comentário no Instagram)",
       "Depoimento 2 — cliente relata clareza após sessões",
       "Depoimento 3 — cliente fala sobre acolhimento e profundidade",
       "Depoimento 4 — relato de propósito e autenticidade",
@@ -85,10 +85,6 @@
       "Depoimento 7 — relato sobre conexão com a alma",
       "Depoimento 8 — cliente cita coragem e clareza",
       "Depoimento 9 — processo de autoconhecimento",
-      "Depoimento 10 — evolução no trabalho e na vida",
-      "Depoimento 11 — integração ciência e espiritualidade",
-      "Depoimento 12 — cliente diz sentir-se mais livre",
-      "Depoimento 13 — gratidão e continuidade do processo"
     ];
   
     const track = document.getElementById("testimonialTrack");
@@ -100,7 +96,7 @@
     let larguraViewport = 0;
     let slides = [];
   
-    // Monta os slides com ALT
+    // Monta os slides da galeria
     for (let i = 1; i <= TOTAL_DEPOIMENTOS; i++) {
       const li = document.createElement("li");
       li.className = "slide";
@@ -113,7 +109,7 @@
       img.decoding = "async";
       img.src = `${PASTA}/${PREFIXO}${i}.jpg`;
   
-      // ✅ aplica alt do array; se faltar, usa um padrão
+      // aplica alt text do array; se faltar, usa um padrão
       const alt = ALT_TEXTS[i - 1] || `Depoimento ${i}`;
       img.alt = alt;
   
