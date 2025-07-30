@@ -5,107 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Silvana Guedes | Mentora Integrativa</title>
-  <style>
-    body {
-      background-color: #f9f9f9;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #8474A1;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-      color: #5a2a82;
-    }
-
-    header p {
-      font-size: 18px;
-      margin-top: 10px;
-      font-weight: 500;
-      color: #3a3a3a;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    img.profile {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-top: 20px;
-    }
-
-    .cta-button {
-      background-color: #6a9f68;
-      color: white;
-      padding: 15px 25px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin: 10px 10px 0 10px;
-    }
-
-    .cta-button:hover {
-      background-color: #557b52;
-    }
-
-    .whoop-button {
-      background-color: #E4A834;
-      color: white;
-      padding: 15px 25px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin: 10px 10px 0 10px;
-    }
-
-    .whoop-button:hover {
-      background-color: #1F1F1F;
-    }
-
-    .testimonial-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 10px 0;
-    }
-    
-    .testimonial-gallery img {
-      width: 100%;
-      border-radius: 8px;
-      border: 2px solid #055B5C; /* cor do footer */
-      background-color: #f3f7f3;
-      object-fit: cover;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
-    footer {
-      background-color: #055B5C;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #fff;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -126,20 +26,19 @@
 
   <section>
     <h2>Depoimentos</h2>
-    <div class="testimonial-gallery">
-    <img src="media/depoimento1.jpg" alt="Depoimento 1">
-    <img src="media/depoimento2.jpg" alt="Depoimento 2">
-    <img src="media/depoimento3.jpg" alt="Depoimento 3">
-    <img src="media/depoimento4.jpg" alt="Depoimento 4">
-    <img src="media/depoimento5.jpg" alt="Depoimento 5">
-    <img src="media/depoimento6.jpg" alt="Depoimento 6">
-    <img src="media/depoimento7.jpg" alt="Depoimento 7">
-    <img src="media/depoimento8.jpg" alt="Depoimento 8">
-    <img src="media/depoimento9.jpg" alt="Depoimento 9">
-    <img src="media/depoimento10.jpg" alt="Depoimento 10">
-    <img src="media/depoimento11.jpg" alt="Depoimento 11">
-    <img src="media/depoimento12.jpg" alt="Depoimento 12">
-    <img src="media/depoimento13.jpg" alt="Depoimento 13">
+    <div class="carousel" aria-label="Galeria de depoimentos">
+      <button class="carousel-btn prev" aria-label="Anterior" title="Anterior">‹</button>
+  
+      <div class="carousel-viewport">
+        <ul class="carousel-track" id="testimonialTrack">
+          <!-- As imagens serão preenchidas via JS -->
+        </ul>
+      </div>
+  
+      <button class="carousel-btn next" aria-label="Próximo" title="Próximo">›</button>
+    </div>
+  
+    <div class="carousel-dots" id="testimonialDots"></div>
     </div>
   </section>
 
@@ -168,6 +67,76 @@
   <footer>
     © 2025 Silvana Guedes · Mentoria Integrativa
   </footer>
+
+  <script>
+    // Configuração: número de imagens e pasta
+    const TOTAL_DEPOIMENTOS = 13;
+    const PASTA = "media";
+    const PREFIXO = "depoimento"; // depoimento1.jpg, depoimento2.jpg ...
+  
+    const track = document.getElementById("testimonialTrack");
+    const dotsWrap = document.getElementById("testimonialDots");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+  
+    let indexAtual = 0;
+    let larguraViewport = 0;
+    let slides = [];
+  
+    // Popula os slides dinamicamente
+    for (let i = 1; i <= TOTAL_DEPOIMENTOS; i++) {
+      const li = document.createElement("li");
+      li.className = "slide";
+  
+      const card = document.createElement("div");
+      card.className = "card";
+  
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.src = `${PASTA}/${PREFIXO}${i}.jpg`;
+      img.alt = `Depoimento ${i}`;
+  
+      card.appendChild(img);
+      li.appendChild(card);
+      track.appendChild(li);
+    }
+  
+    slides = Array.from(track.children);
+  
+    // Cria dots (bolinhas de navegação)
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.addEventListener("click", () => irPara(i));
+      dotsWrap.appendChild(dot);
+    });
+  
+    function atualizarUI() {
+      larguraViewport = track.parentElement.clientWidth;
+      track.style.transform = `translateX(${-indexAtual * larguraViewport}px)`;
+  
+      Array.from(dotsWrap.children).forEach((dot, i) => {
+        dot.setAttribute("aria-selected", i === indexAtual ? "true" : "false");
+      });
+  
+      prevBtn.disabled = indexAtual === 0;
+      nextBtn.disabled = indexAtual === slides.length - 1;
+    }
+  
+    function irPara(novoIndex) {
+      indexAtual = Math.max(0, Math.min(slides.length - 1, novoIndex));
+      atualizarUI();
+    }
+  
+    function proximo() { irPara(indexAtual + 1); }
+    function anterior() { irPara(indexAtual - 1); }
+  
+    nextBtn.addEventListener("click", proximo);
+    prevBtn.addEventListener("click", anterior);
+  
+    // Inicializa
+    window.addEventListener("resize", atualizarUI);
+    atualizarUI();
+  </script>
 
 </body>
 </html>
