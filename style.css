@@ -147,6 +147,43 @@ img.profile {
   }
 }
 
+/* Seção Podcast */
+.podcast {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.podcast h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.podcast p {
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+/* Container do vídeo responsivo */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* Botões de contato */
 .cta-button {
   background-color: #6a9f68;
