@@ -79,15 +79,23 @@
     }
 
     .whoop-button:hover {
-      background-color: ##1F1F1F;
+      background-color: #1F1F1F;
     }
 
-    .testimonial {
+    .testimonial-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 10px 0;
+    }
+    
+    .testimonial-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      border: 2px solid #055B5C; /* cor do footer */
       background-color: #f3f7f3;
-      border-left: 4px solid #6a9f68;
-      padding: 20px;
-      margin-bottom: 20px;
-      font-style: italic;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
 
     footer {
@@ -115,8 +123,13 @@
 
   <section>
     <h2>Depoimentos</h2>
-    <div class="testimonial">"Silvana me ajudou a enxergar o que estava escondido dentro de mim. Hoje vivo com mais propósito e autenticidade." — Cliente 1</div>
-    <div class="testimonial">"O atendimento com a Silvana é uma experiência profunda. Me senti segura, acolhida e ao mesmo tempo desafiada a crescer." — Cliente 2</div>
+    <div class="testimonial-gallery">
+    <img src="depoimento1.jpg" alt="Depoimento 1">
+    <img src="depoimento2.jpg" alt="Depoimento 2">
+    <img src="depoimento3.jpg" alt="Depoimento 3">
+    <img src="depoimento4.jpg" alt="Depoimento 4">
+    <img src="depoimento5.jpg" alt="Depoimento 4">
+    </div>
   </section>
 
   <section>
