@@ -152,7 +152,6 @@ img.profile {
   padding: 40px 20px;
   max-width: 800px;
   margin: auto;
-  text-align: center;
 }
 
 .podcast h2 {
@@ -186,6 +185,7 @@ img.profile {
 
 /* Botão podcast - estilo YouTube */
 .podcast-button {
+  text-align: center;
   background-color: #ff0000; /* vermelho YouTube */
   color: #fff;
   padding: 15px 25px;
