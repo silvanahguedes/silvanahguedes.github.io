@@ -91,13 +91,13 @@ img.profile {
 .fotos-historia figure:nth-child(2) {
   top: 100px;      /* aumentado (antes 60px) */
   left: 150px;    /* aumentado (antes 100px) */
-  z-index: 2;
+  z-index: 1;
 }
 
 .fotos-historia figure:nth-child(3) {
   top: 200px;     /* aumentado (antes 140px) */
   left: 10px;     /* aumentado (antes 40px) */
-  z-index: 1;
+  z-index: 2;
 }
 
 /* foto dentro do figure */
