@@ -35,6 +35,10 @@ section {
   margin: auto;
 }
 
+p {
+  text-align: justify;
+}
+
 /* Foto de perfil */
 img.profile {
   width: 180px;
