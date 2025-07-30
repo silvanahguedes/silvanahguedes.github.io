@@ -183,30 +183,9 @@ img.profile {
   height: 100%;
 }
 
-/* Botão podcast - estilo YouTube */
-.podcast-button {
-  text-align: center;
-  background-color: #ff0000; /* vermelho YouTube */
-  color: #fff;
-  padding: 15px 25px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  margin: 10px 10px 0 10px;
-  font-weight: 500;
-}
-
-.podcast-button:hover {
-  background-color: #cc0000; /* tom mais escuro ao passar o mouse */
-}
-
-
-/* Botões de contato */
+/* Botões gerais */
 .cta-button {
-  background-color: #6a9f68;
+  background-color: #055B5C;
   color: white;
   padding: 15px 25px;
   font-size: 16px;
@@ -214,12 +193,13 @@ img.profile {
   border-radius: 6px;
   cursor: pointer;
   text-decoration: none;
-  display: inline-block;
-  margin: 10px 10px 0 10px;
+  display: block;        /* vira bloco para permitir margin auto */
+  width: max-content;    /* largura se ajusta ao conteúdo */
+  margin: 10px auto 0;   /* centraliza horizontalmente */
 }
 
 .cta-button:hover {
-  background-color: #557b52;
+  background-color: #034344;
 }
 
 /* Botão Whoop (estilo do outro site) */
