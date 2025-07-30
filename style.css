@@ -90,14 +90,14 @@ img.profile {
 }
 
 .fotos-historia figure:nth-child(2) {
-  top: 90px;      /* aumentado (antes 60px) */
-  left: 140px;    /* aumentado (antes 100px) */
+  top: 100px;      /* aumentado (antes 60px) */
+  left: 150px;    /* aumentado (antes 100px) */
   z-index: 2;
 }
 
 .fotos-historia figure:nth-child(3) {
-  top: 180px;     /* aumentado (antes 140px) */
-  left: 70px;     /* aumentado (antes 40px) */
+  top: 200px;     /* aumentado (antes 140px) */
+  left: 10px;     /* aumentado (antes 40px) */
   z-index: 1;
 }
 
